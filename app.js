@@ -16,12 +16,10 @@ function verificarIntento(){
     tentativas++;
 
     //Verificamos si quedan intentos
-    if (intentos === 0){
-        asignarTexto(
-            'p',
-            'Te quedaste sin intentos'
-        );
+    if (intentos < 1){
+        asignarTexto('p','Te quedaste sin intentos');
         document.getElementById('reiniciar').removeAttribute('disabled');
+        document.getElementById('intentar').setAttribute('disabled','true');
         return;
     }
 
@@ -72,7 +70,7 @@ function condicionesIniciales(){
         element = 'p',
         text = `Escribe un numero del 1 al 10\nTienes ${intentos} ${intentos > 1 ? 'intentos' : 'intento'}`
     )
-    document.getElementById(valorUsuario).setAttribute('disable','true');
+    document.getElementById('intentar').removeAttribute('disabled');
 }
 
 condicionesIniciales();
